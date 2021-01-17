@@ -158,11 +158,11 @@ export default {
 
     // select the unique wrapper element
     this.wrapper = await elementReady(`[data-uuid="${this.uuid}"]`, { stopOnDomReady: false })
-    this.grid.on('rowClick', (...args) => {this.$emit('grid-row-click', args)})
-    this.grid.on('cellClick', (...args) => {this.$emit('grid-cell-click', args)})
-    this.grid.on('ready', (...args) => {this.$emit('grid-ready', args)})
-    this.grid.on('beforeLoad', (...args) => {this.$emit('grid-before-load', args)})
-    this.grid.on('load', (...args) => {this.$emit('grid-load', args)})
+    this.grid.on('rowClick', (...args) => {console.log("I'm row clicked"); this.$emit('grid-row-click', args)})
+    this.grid.on('cellClick', (...args) => {console.log("I'm cell clicked"); this.$emit('grid-cell-click', args)})
+    this.grid.on('ready', (...args) => {console.log("I'm ready"); this.$emit('grid-ready', args)})
+    this.grid.on('beforeLoad', (...args) => {console.log("I'm before loading"); this.$emit('grid-before-load', args)})
+    this.grid.on('load', (...args) => {console.log("I'm loaded"); this.$emit('grid-load', args)})
     
     // assign styles
     if (this.theme !== 'none') await this.assignTheme()
